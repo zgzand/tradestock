@@ -11,6 +11,10 @@ from autotrade.credit_trade import AutoTrade
 
 
 def opn_fg():
+    """
+    风格板块代码提取
+    :return:
+    """
     src = r'C:\海王星金融终端-中国银河证券\T0002\hq_cache\block_fg.dat'
     dst = r'D:\PycharmProjects\autotrade\db\block_fg.dat'
     dst_1 = r'D:\PycharmProjects\autotrade\db\block_fg.txt'
@@ -18,13 +22,6 @@ def opn_fg():
     shutil.copy(src, dst)  # 复制文件
     os.remove(dst_1)  # 删除文件
     os.rename(dst, dst_1)  # 重命名
-
-    # gbk -> utf-8
-    # f = codecs.open(dst_1, 'r', 'gbk')
-    # ff = f.read()
-    # os.remove(dst_1)  # 删除文件
-    # d = codecs.open(dst_1, 'w', 'utf-8')
-    # d.write(ff)
 
     app_1 = Application(backend="uia").start('notepad.exe')
     # dlg = app.window(title=u"无标题 - 记事本", best_match=u"记事本")
@@ -108,5 +105,3 @@ def flash_trading(code, amount='0', ratio=0, sty='211'):
 
 # flash_trading('300297', '2500', 0, '211')
 flash_trading('600733', '1000', 0, '211')
-# trade = AutoTrade()
-# trade.get_data_frozen()
